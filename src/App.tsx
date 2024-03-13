@@ -37,6 +37,13 @@ const App: React.FC = () => {
 
   const add = (target: number) => {
     const task = window.prompt("Enter a name");
+
+    if (!task) return;
+
+    setTasks(prevTasks => ({
+      ...prevTasks,
+      [`${target}`]: [...prevTasks[`${target}`], task]
+    }))
   }
 
   return (
